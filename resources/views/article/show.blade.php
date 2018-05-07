@@ -23,7 +23,11 @@
       <input type="hidden" class="form-control" name="article_id" value="{{ $article->id }}">
 
       <div class="form-group">
-          <textarea name="comment" class="form-control" ></textarea>
+          <textarea name="comment" class="form-control">{{ old('comment') }}</textarea>
+          @if ($errors->has('comment'))
+            <span class="text-danger">{{ $errors->first('comment') }}</span>
+          @endif
+
       </div>
 
       <div class="form-group">
