@@ -19,6 +19,10 @@ Route::post('edit', 'ArticleController@update');
 Route::get('delete/{id}', 'ArticleController@show');
 Route::post('delete', 'ArticleController@delete');
 
+Route::get('/articles/{id}', 'ArticleController@show');
+
+Route::post('/comments', 'CommentController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

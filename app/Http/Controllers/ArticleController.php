@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Article;
+use App\Article;
 
 class ArticleController extends Controller
 {
@@ -43,6 +43,7 @@ class ArticleController extends Controller
 
     public function show(Request $request, $id) {
         $article = Article::find($id);
+
         return view('article.show', ['article' => $article]);
     }
 
