@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>ブログ一覧</h1>
+    <h1>ブログ一覧(テスト)</h1>
     <p><a href="/create" class="btn btn-primary">新規追加</a></p>
 
     @foreach ($articles as $article)
