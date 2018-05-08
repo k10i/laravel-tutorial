@@ -1,0 +1,90 @@
+{
+  "name": "laravel-blog",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "APP_KEY": {
+      "required": true
+    },
+    "APP_LOG": {
+      "required": true
+    },
+    "APP_URL": {
+      "required": true
+    },
+    "DB_CONNECTION": {
+      "required": true
+    },
+    "DB_DATABASE": {
+      "required": true
+    },
+    "DB_HOST": {
+      "required": true
+    },
+    "DB_PASSWORD": {
+      "required": true
+    },
+    "DB_PORT": {
+      "required": true
+    },
+    "DB_USERNAME": {
+      "required": true
+    },
+    "MAIL_DRIVER": {
+      "required": true
+    },
+    "MAIL_ENCRYPTION": {
+      "required": true
+    },
+    "MAIL_FROM_ADDRESS": {
+      "required": true
+    },
+    "MAIL_FROM_NAME": {
+      "required": true
+    },
+    "MAIL_HOST": {
+      "required": true
+    },
+    "MAIL_PASSWORD": {
+      "required": true
+    },
+    "MAIL_PORT": {
+      "required": true
+    },
+    "MAIL_USERNAME": {
+      "required": true
+    },
+    "NEW_RELIC_LICENSE_KEY": {
+      "required": true
+    },
+    "NEW_RELIC_LOG": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    },
+    "SENDGRID_PASSWORD": {
+      "required": true
+    },
+    "SENDGRID_USERNAME": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "newrelic",
+    "papertrail",
+    "heroku-postgresql",
+    "sendgrid"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
