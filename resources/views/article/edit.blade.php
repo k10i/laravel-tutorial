@@ -14,7 +14,7 @@
     @endif
 
 
-    <form method="post" action="/edit">
+    <form method="post" action="/edit" enctype="multipart/form-data">
       {{ csrf_field() }}
       <input type="hidden" class="form-control" name="id" value="{{ $article->id }}">
       <div class="form-group">
@@ -31,6 +31,14 @@
           <span class="text-danger">{{ $errors->first('body') }}</span>
         @endif
       </div>
+      <div class="form-group">
+        <label>ファイル</label>
+        @if ($article->attachment)
+            <img src="/storage/attachment/{{ $article->attachment }}" width="200">
+        @endif
+        <input type="file" name="attachment" class="form-control">
+      </div>
+
       <button type="submit" class="btn btn-primary">修正</button>
     </form>
 @endsection

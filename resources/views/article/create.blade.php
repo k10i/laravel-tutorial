@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form method="post" action="/create">
+    <form method="post" action="/create" enctype="multipart/form-data">
       {{ csrf_field() }}
       <div class="form-group">
         <label for="titleInput">タイトル</label>
@@ -28,6 +28,10 @@
         @if ($errors->has('body'))
           <span class="text-danger">{{ $errors->first('body') }}</span>
         @endif
+        </div>
+      <div class="form-group">
+        <label>ファイル</label>
+        <input type="file" name="attachment" class="form-control">
       </div>
       <button type="submit" class="btn btn-primary">新規追加</button>
     </form>

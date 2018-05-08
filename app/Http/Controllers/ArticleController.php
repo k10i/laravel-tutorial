@@ -36,18 +36,26 @@ class ArticleController extends Controller
             [
                 'title' => 'required|max:10',
                 'body' => 'required',
+                'attachment' => 'image',
             ],
             [
                 'title.required' => 'タイトルを入力してください',
                 'title.max' => 'タイトルは10文字以内で入力してください',
                 'body.required' => '本文を入力してください',
+                'attachment.image' => '画像ファイルを選択してください',
             ]
         );
 
-
         $article = new Article;
+
+
         $article->title = $request->title;
         $article->body = $request->body;
+
+        if ($request->file('attachment')) {
+            $article->attachment = basename($request->attachment->store('public/attachment'));
+        }
+
         $article->save();
 
         $request->session()->flash('message', '登録しました');
@@ -66,11 +74,13 @@ class ArticleController extends Controller
             [
               'title' => 'required|max:10',
               'body' => 'required',
+              'attachment' => 'image',
             ],
             [
                 'title.required' => 'タイトルを入力してください',
                 'title.max' => 'タイトルは10文字以内で入力してください',
                 'body.required' => '本文を入力してください',
+                'attachment.image' => '画像ファイルを選択してください',
             ]
         );
 
@@ -78,6 +88,11 @@ class ArticleController extends Controller
         $article = Article::find($request->id);
         $article->title = $request->title;
         $article->body = $request->body;
+
+        if ($request->file('attachment')) {
+            $article->attachment = basename($request->attachment->store('public/attachment'));
+        }
+
         $article->save();
 
         $request->session()->flash('message', '更新しました');
